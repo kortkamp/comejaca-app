@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-const connectionString = 'mongodb+srv://andre:andre@sandbox.mtgzq.mongodb.net/comejaca?retryWrites=true&w=majority'
+const connectionString = process.env.ATLAS_URI
 
 const client = new MongoClient(connectionString, {
   useNewUrlParser: true,
@@ -15,7 +15,7 @@ module.exports = {
         return callback(err);
       }
 
-      dbConnection = db.db('comejaca');
+      dbConnection = db.db(process.env.DATABASE);
       console.log('Successfully connected to MongoDB.');
 
       return callback();
