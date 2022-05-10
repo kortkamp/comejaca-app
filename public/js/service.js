@@ -90,7 +90,7 @@ function submitForm(event) {
         tamanho_camisa: getValue('tamanho_camisa'),
     }
 
-    fetch('https://comejaca-msiwiswy1-andrelduarte.vercel.app/api/inscricoes', {
+    fetch('http://localhost:5000/', {
         headers: {
             "Content-Type": "application/json"
         },
