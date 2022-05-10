@@ -90,7 +90,7 @@ function submitForm(event) {
         tamanho_camisa: getValue('tamanho_camisa'),
     }
 
-    fetch('http://localhost:5000/', {
+    fetch('https://comejaca-app.vercel.app/', {
         headers: {
             "Content-Type": "application/json"
         },
