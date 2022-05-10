@@ -8,7 +8,7 @@ const app = express()
 app.use(cors())
 app.use(express.json());
 app.use(require('./src/routes/inscricoes'));
-
+app.use(express.static('../public'))
 
 // perform a database connection when the server starts
 dbo.connectToServer(function (err) {
