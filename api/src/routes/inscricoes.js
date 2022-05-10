@@ -3,8 +3,11 @@ const inscricoesRoutes = express.Router();
 
 const dbo = require('../database/conn');
 
+inscricoesRoutes.route('/api/').get(async (_req, res) => {
+    res.status(200).send('Oi Eu sou o goku')
+})
 
-inscricoesRoutes.route('/inscricoes').get(async (_req, res) => {
+inscricoesRoutes.route('/api/inscricoes').get(async (_req, res) => {
     const dbConnect = dbo.getDb();
 
     dbConnect
@@ -20,7 +23,7 @@ inscricoesRoutes.route('/inscricoes').get(async (_req, res) => {
         });
 });
 
-inscricoesRoutes.route('/inscricoes').post(async (_req, res) => {
+inscricoesRoutes.route('/api/inscricoes').post(async (_req, res) => {
     const dbConnect = dbo.getDb();
     const inscricao = {
         dados_pessoais: {
@@ -105,7 +108,7 @@ inscricoesRoutes.route('/inscricoes').post(async (_req, res) => {
 });
 
 
-inscricoesRoutes.route('/inscricoes/test').post(async (_req, res) => {
+inscricoesRoutes.route('/api/inscricoes/test').post(async (_req, res) => {
   console.log(_req.body)
   res.status(204).send();
 });
@@ -114,3 +117,4 @@ inscricoesRoutes.route('/inscricoes/test').post(async (_req, res) => {
 
 
 module.exports = inscricoesRoutes;
+
