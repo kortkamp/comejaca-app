@@ -120,7 +120,9 @@ form {
     margin-bottom: 1rem;
     display: flex;
     gap: 1rem;
+    
 }
+
 
 .inputfield>div {
     align-self: flex-end;
@@ -427,3 +429,8 @@ ul li {
 ul:last-child {
     padding-bottom: 38.5px;
 }
+
+#dados_para_evento  .inputfield .custom_select, #dados_para_evento  .inputfield input {
+  margin-top: 15px;
+}
+

@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="pt-BR">
 
@@ -22,7 +20,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
     </header>
 
 
-    <form class="form" method="POST">
+    <form class="form" onsubmit="submitForm(event)">
 
         <!-- dados  pessoais -->
 
@@ -35,36 +33,35 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
             <div class="inputfield">
                 <label for="nome">Nome Completo
                 </label>
-                <input type="text" class="input" id="nome" name="nomecompleto" required>
+                <input type="text" class="input" id="nome" value="andre" name="nomecompleto" required>
             </div>
 
 
             <div class="inputfield">
                 <label for="nome_cracha">Nome no cracha</label>
-                <input type="text" class="input" id="nome_cracha" name="nome_no_cracha" required>
+                <input type="text" class="input" id="nome_cracha" value="andre" name="nome_cracha" required>
             </div>
 
 
             <div class="inputfield">
                 <label for="email">E-mail</label>
-                <input type="email" class="input" placeholder="" name="email" required>
+                <input type="email" class="input" placeholder="" value="andre@aa.com" name="email" required>
             </div>
 
             <div class="inputfield">
                 <label for="data_nascimento">Data de Nascimento</label>
-                <input class="input" type="date" name="data_nascimento" place min="1922-01-01" max="3022-01-01"
-                    maxlength="10" required>
+                <input class="input" type="date" value="2022-05-08" name="data_nascimento" maxlength="10" required>
             </div>
 
             <div class="inputfield">
                 <label for="idade">Idade (30/07/2022)</label>
-                <input class="input" type="number" name="idade" onload="" disabled>
+                <input class="input" type="number" value="1" name="idade" onload="" disabled>
             </div>
 
             <div class="inputfield">
                 <label>Sexo</label>
                 <select name="sexo">
-                    <option value="">Selecionar</option>
+                    <option value="f">Selecionar</option>
                     <option value="M">Masculino</option>
                     <option value="F">Feminino</option>
 
@@ -74,7 +71,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
             <div class="inputfield">
                 <label>Genero</label>
                 <select name="genero">
-                    <option value="">Selecionar</option>
+                    <option value="f">Selecionar</option>
                     <option value="Cisgenero">Cisgênero</option>
                     <option value="Transgenero">Transgênero</option>
                     <option value="Nao-binario">Não-binário</option>
@@ -84,8 +81,8 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
             <div class="inputfield" id="tel">
                 <label>Telefone</label>
-                <input type="tel" class="input" onkeypress="mask(this, telephone) " onblur="mask(this, telephone); "
-                    name="telefone">
+                <input type="tel" class="input" value="andre" onkeypress="mask(this, telephone) "
+                    onblur="mask(this, telephone); " name="telefone">
             </div>
 
         </div>
@@ -100,33 +97,33 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
             <div class="inputfield">
                 <label for="CEP">CEP</label>
-                <input type="text" id="cep" class="input" name="CEP" required>
+                <input type="text" id="cep" value="andre" class="input" name="CEP" required>
             </div>
 
             <div class="inputfield">
                 <label for="endereco">Endereço</label>
-                <input type="text" id="endereco" name="endereco" class="input" disabled required>
+                <input type="text" id="endereco" name="endereco" value="andre" class="input" disabled required>
             </div>
 
             <div class="inputfield">
                 <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estado" class="input" disabled required>
+                <input type="text" id="estado" name="estado" value="andre" class="input" disabled required>
             </div>
 
             <div class="inputfield">
                 <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidade" class="input" disabled required>
+                <input type="text" id="cidade" name="cidade" value="andre" class="input" disabled required>
             </div>
 
 
             <div class="inputfield">
                 <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairro" class="input" disabled required>
+                <input type="text" id="bairro" name="bairro" class="input" value="andre" disabled required>
             </div>
 
             <div class="inputfield">
                 <label for="numero">Numero</label>
-                <input type="text" id="numero" name="numero" class="input" required>
+                <input type="text" id="numero" name="numero" value="andre" class="input" required>
             </div>
         </div>
 
@@ -139,8 +136,8 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
             <div class="inputfield">
                 <label>Tipo de partipação</label>
-                <select name="tipopart">
-                    <option value="">Selecionar</option>
+                <select name="tipo_participacao">
+                    <option value="a">Selecionar</option>
                     <option value="Confraternista">Confraternista</option>
                     <option value="Trabalhador">Trabalhador</option>
                     <option value="Pais">Pais</option>
@@ -153,7 +150,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
                 <select name="comissao">
 
-                    <option value="">Selecionar</option>
+                    <option value="a">Selecionar</option>
                     <option value="Divulgacao">Divulgação</option>
                     <option value="Recepcao">Recepção</option>
                     <option value="Servicos Gerais">Serviços Gerais</option>
@@ -168,7 +165,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 <label for="tshitnum">Deseja camisa?</label>
 
                 <select name="camisa">
-                    <option value="">
+                    <option value="a">
                         Selecionar
                     </option>
                     <option value="S">Sim</option>
@@ -179,7 +176,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
             <div class="inputfield">
                 <label>Tamanho da camisa</label>
                 <select name="tamanho_camisa">
-                    <option value="">Selecionar</option>
+                    <option value="a">Selecionar</option>
                     <option value="PP">PP</option>
                     <option value="P">P</option>
                     <option value="M">M</option>
@@ -201,8 +198,8 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 <div>
                     <label>Já participou de outras COMEJACAS?</label>
                     <div class="custom_select">
-                        <select name="is_comejacas">
-                            <option value="">Selecionar</option>
+                        <select name="comejacas">
+                            <option value="a">Selecionar</option>
                             <option value="N">Sim</option>
                             <option value="S">Não</option>
                         </select>
@@ -211,7 +208,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
                 <div>
                     <label>Quantas ?</label>
-                    <input type="text" name="quantas" class="input">
+                    <input type="text" name="quantas" value="andre" class="input">
 
                 </div>
             </div>
@@ -221,7 +218,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                     <label>Possui algum tipo de alergia?</label>
                     <div class="custom_select">
                         <select name="alergia">
-                            <option value="">Selecionar</option>
+                            <option value="a">Selecionar</option>
                             <option value="S">Sim</option>
                             <option value="N">Não</option>
                         </select>
@@ -230,7 +227,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
                 <div>
                     <label>Quais? </label>
-                    <input type="text" name="quais_alergia" class="input">
+                    <input type="text" value="andre" name="quais_alergia" value="andre" class="input">
                 </div>
             </div>
 
@@ -239,7 +236,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                     <label>Possui alguma doença crônica?</label>
                     <div class="custom_select">
                         <select name="doenca">
-                            <option value="">Selecionar</option>
+                            <option value="a">Selecionar</option>
                             <option value="S">Sim</option>
                             <option value="N">Não</option>
                         </select>
@@ -247,7 +244,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 </div>
                 <div>
                     <label>Quais?</label>
-                    <input type="text" name="quais_doenca" class="input">
+                    <input type="text" value="andre" name="quais_doenca" class="input">
                 </div>
             </div>
 
@@ -256,7 +253,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                     <label>Faz uso rotineiro de medicação?</label>
                     <div class="custom_select">
                         <select name="medicacao">
-                            <option value="">Selecionar</option>
+                            <option value="a">Selecionar</option>
                             <option value="S">Sim</option>
                             <option value="N">Não</option>
                         </select>
@@ -264,7 +261,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 </div>
                 <div>
                     <label>Quais? </label>
-                    <input type="text" name="quais_medicacao" class="input">
+                    <input type="text" value="andre" name="quais_medicacao" class="input">
                 </div>
             </div>
 
@@ -274,7 +271,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                     <div class="custom_select">
                         <select name="vegetariano">
 
-                            <option value="">Selecionar</option>
+                            <option value="a">Selecionar</option>
                             <option value="N">Sim</option>
                             <option value="S">Não</option>
                         </select>
@@ -282,7 +279,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 </div>
                 <div>
                     <label>Quais? </label>
-                    <input type="text" name="quais_vegetariano" class="input">
+                    <input type="text" value="andre" name="quais_vegetariano" class="input">
                 </div>
             </div>
 
@@ -291,7 +288,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                     <label>Possui plano de saúde?</label>
                     <div class="custom_select">
                         <select name="plano_de_saude">
-                            <option value="">Selecionar</option>
+                            <option value="a">Selecionar</option>
                             <option value="N">Sim</option>
                             <option value="S">Não</option>
                         </select>
@@ -299,8 +296,8 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 </div>
                 <div>
                     <label>Telefone do convênio</label>
-                    <input type="text" name="telefone_plano" class="input" onkeypress="mask(this, telephone) "
-                        onblur="mask(this, telephone); " name="telefone_plano">
+                    <input type="text" value="andre" name="telefone_plano" class="input"
+                        onkeypress="mask(this, telephone) " onblur="mask(this, telephone); " name="telefone_plano">
                 </div>
             </div>
 
@@ -316,39 +313,40 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
             <div class="inputfield">
                 <label>Nome</label>
-                <input type="text" id="instituicao_espirita"  list="sel">
-                <datalist id="sel">
-                  <option value="Instituição Espirita">Instituição Espirita</option>
+                <input type="text" value="andre" id="instituicao_espirita" name="instituicao_espirita" list="datalist">
+                <datalist id="datalist">
+                    <option value="Instituição Espirita">Instituição Espirita</option>
                 </datalist>
-               <!--  <select name="instituicao_espirita" id="sel">
+                <!--  <select name="instituicao_espirita" id="sel">
                     <option value="234"> Selecione a instituição Espírita</option>
 
                 </select> -->
             </div>
             <div class="inputfield">
                 <label>Endereço</label>
-                <input name="endereco_c" id="endereco_espirita" type="TEXT" class="input">
+                <input name="endereco_c" value="andre" id="endereco_espirita" type="TEXT" class="input">
             </div>
             <div class="inputfield">
 
                 <label for="bairro_espirita">Bairro</label>
-                <input name="bairro_c" id="bairro_espirita" class="input" min="1922-01-01" max="3022-01-01">
+                <input name="bairro_c" value="andre" id="bairro_espirita" class="input" min="1922-01-01"
+                    max="3022-01-01">
 
             </div>
 
             <div class="inputfield">
                 <label>Cidade</label>
-                <input name="cidade_c" id="cidade_espirita" type="text" class="input" required>
+                <input name="cidade_c" value="andre" id="cidade_espirita" type="text" class="input" required>
             </div>
 
             <div class="inputfield">
                 <label>CEP</label>
-                <input name="cep_centro" id="CEP_espirita" type="text" class="input" required>
+                <input name="cep_centro" value="andre" id="CEP_espirita" type="text" class="input" required>
             </div>
 
             <div class="inputfield">
                 <label> Tempo de instituição</label>
-                <input name="tempo_instituicao" type="number" class="input" required>
+                <input name="tempo_instituicao" value="1" type="number" class="input" required>
             </div>
         </div>
 
@@ -411,7 +409,7 @@ Jesus é para o homem o exemplo da perfeição moral a que pode pretender a huma
             </div>
 
             <div class="terms-checkbox">
-                <input type="checkbox" required id="terms-checkbox" name="terms-checkbox">
+                <input type="checkbox" checked required id="terms-checkbox" name="terms-checkbox">
                 <label for="terms-checkbox">Li e concordo com as NORMAS DE AÇÂO COMEJACA 2022</label>
             </div>
 
@@ -435,9 +433,12 @@ Jesus é para o homem o exemplo da perfeição moral a que pode pretender a huma
 </div>
 
 </div>
+<script src="js/viacep.js"></script>
+<script src="js/service.js"></script>
+<script src="js/centros.js"></script>
+<script src="js/scripts.js"></script>
 
 
- <script src="js/scripts.js"></script>
 </body>
 
 </html>
