@@ -1,0 +1,83 @@
+@media screen and (max-width: 600px) {
+  .inputfield {
+    display: flex;
+    flex-direction: column;;
+  }
+form {padding: 0;}
+select {
+  
+    text-align: center;
+}
+.inputfield > div  {
+  width: 100%;
+  text-align: center;
+}
+
+.inputfield > label  {
+  width: 100%;
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 100%;
+}
+.wave {
+  display: none;
+}
+#test > div > label {
+padding-bottom:50px;
+} 
+body {
+  background: none;
+  border: none;
+}
+#dados_para_evento input {
+  margin-bottom: 45px;
+}
+
+
+input {
+  text-align: center;
+}
+}
+
+
+/* celular */
+@media screen and (max-width: 350px) {
+  input {
+    text-align: center;
+  }
+  #dados_para_evento input {
+    padding-bottom: 45px;
+  }
+  form {padding: 0;}
+
+  .inputfield {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputfield > label  {
+    width: 100%;
+    text-align: center;
+    
+}
+
+select  {
+ 
+  text-align: center;
+}
+.inputfield > div > label {
+
+  text-align: center;
+}
+.wave {
+  display: none;
+}
+body {
+  background: none;
+  border: none;
+}
+
+}
+

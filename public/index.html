@@ -1,0 +1,444 @@
+
+
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="icon" href="./img/jacare.svg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Pagina desenvolvida para suportar inscrições da 
+Confraternização das Mocidades Espiritas de Jacarepagua">
+    <meta name="keywords" content="">
+    <link rel="icon" href="../../img/jacare.svg">
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/mobile.css">
+</head>
+<div class="wrapper">
+    <header class="title">
+        <img src="../../img/jacare.svg" alt="Oi! eu sou o Jacaré">
+        <h1>XLIII COMEJACA 2022 </h1>
+        <span>Confraternização das Mocidades Espíritas de Jacarepaguá</span>
+    </header>
+
+
+    <form class="form" method="POST">
+
+        <!-- dados  pessoais -->
+
+        <div class="steps">
+
+            <h2>
+                <p id="signup">DADOS PESSOAIS</p>
+            </h2>
+
+            <div class="inputfield">
+                <label for="nome">Nome Completo
+                </label>
+                <input type="text" class="input" id="nome" name="nomecompleto" required>
+            </div>
+
+
+            <div class="inputfield">
+                <label for="nome_cracha">Nome no cracha</label>
+                <input type="text" class="input" id="nome_cracha" name="nome_no_cracha" required>
+            </div>
+
+
+            <div class="inputfield">
+                <label for="email">E-mail</label>
+                <input type="email" class="input" placeholder="" name="email" required>
+            </div>
+
+            <div class="inputfield">
+                <label for="data_nascimento">Data de Nascimento</label>
+                <input class="input" type="date" name="data_nascimento" place min="1922-01-01" max="3022-01-01"
+                    maxlength="10" required>
+            </div>
+
+            <div class="inputfield">
+                <label for="idade">Idade (30/07/2022)</label>
+                <input class="input" type="number" name="idade" onload="" disabled>
+            </div>
+
+            <div class="inputfield">
+                <label>Sexo</label>
+                <select name="sexo">
+                    <option value="">Selecionar</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+
+                </select>
+            </div>
+
+            <div class="inputfield">
+                <label>Genero</label>
+                <select name="genero">
+                    <option value="">Selecionar</option>
+                    <option value="Cisgenero">Cisgênero</option>
+                    <option value="Transgenero">Transgênero</option>
+                    <option value="Nao-binario">Não-binário</option>
+                </select>
+            </div>
+
+
+            <div class="inputfield" id="tel">
+                <label>Telefone</label>
+                <input type="tel" class="input" onkeypress="mask(this, telephone) " onblur="mask(this, telephone); "
+                    name="telefone">
+            </div>
+
+        </div>
+
+        <!-- endereco -->
+
+        <div class="steps">
+            <h2>
+                <p>ENDEREÇO</p>
+            </h2>
+
+
+            <div class="inputfield">
+                <label for="CEP">CEP</label>
+                <input type="text" id="cep" class="input" name="CEP" required>
+            </div>
+
+            <div class="inputfield">
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" name="endereco" class="input" disabled required>
+            </div>
+
+            <div class="inputfield">
+                <label for="estado">Estado</label>
+                <input type="text" id="estado" name="estado" class="input" disabled required>
+            </div>
+
+            <div class="inputfield">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" class="input" disabled required>
+            </div>
+
+
+            <div class="inputfield">
+                <label for="bairro">Bairro</label>
+                <input type="text" id="bairro" name="bairro" class="input" disabled required>
+            </div>
+
+            <div class="inputfield">
+                <label for="numero">Numero</label>
+                <input type="text" id="numero" name="numero" class="input" required>
+            </div>
+        </div>
+
+        <!-- dados para o evento -->
+
+        <div class="steps">
+            <h2>
+                <p>DADOS PARA O EVENTO</p>
+            </h2>
+
+            <div class="inputfield">
+                <label>Tipo de partipação</label>
+                <select name="tipopart">
+                    <option value="">Selecionar</option>
+                    <option value="Confraternista">Confraternista</option>
+                    <option value="Trabalhador">Trabalhador</option>
+                    <option value="Pais">Pais</option>
+                    <option value="Crianca">Criança</option>
+                </select>
+            </div>
+            <div class="inputfield">
+
+                <label for="tshitnum">Comissão</label>
+
+                <select name="comissao">
+
+                    <option value="">Selecionar</option>
+                    <option value="Divulgacao">Divulgação</option>
+                    <option value="Recepcao">Recepção</option>
+                    <option value="Servicos Gerais">Serviços Gerais</option>
+                    <option value="Alimentacao">Alimentação</option>
+                    <option value="Estudos">Estudos</option>
+                    <option value="Coordenacao Geral">Coordenação Geral</option>
+                </select>
+            </div>
+
+            <div class="inputfield">
+
+                <label for="tshitnum">Deseja camisa?</label>
+
+                <select name="camisa">
+                    <option value="">
+                        Selecionar
+                    </option>
+                    <option value="S">Sim</option>
+                    <option value="N">Não</option>
+                </select>
+            </div>
+
+            <div class="inputfield">
+                <label>Tamanho da camisa</label>
+                <select name="tamanho_camisa">
+                    <option value="">Selecionar</option>
+                    <option value="PP">PP</option>
+                    <option value="P">P</option>
+                    <option value="M">M</option>
+                    <option value="G">G</option>
+                    <option value="GG">GG</option>
+                    <option value="XG">XG</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- outras informações -->
+
+        <div class="steps" id="dados_para_evento">
+            <h2>
+                <p>OUTRAS INFORMAÇÕES</p>
+            </h2>
+
+            <div class="inputfield" id="test">
+                <div>
+                    <label>Já participou de outras COMEJACAS?</label>
+                    <div class="custom_select">
+                        <select name="is_comejacas">
+                            <option value="">Selecionar</option>
+                            <option value="N">Sim</option>
+                            <option value="S">Não</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Quantas ?</label>
+                    <input type="text" name="quantas" class="input">
+
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <div>
+                    <label>Possui algum tipo de alergia?</label>
+                    <div class="custom_select">
+                        <select name="alergia">
+                            <option value="">Selecionar</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Quais? </label>
+                    <input type="text" name="quais_alergia" class="input">
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <div>
+                    <label>Possui alguma doença crônica?</label>
+                    <div class="custom_select">
+                        <select name="doenca">
+                            <option value="">Selecionar</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label>Quais?</label>
+                    <input type="text" name="quais_doenca" class="input">
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <div>
+                    <label>Faz uso rotineiro de medicação?</label>
+                    <div class="custom_select">
+                        <select name="medicacao">
+                            <option value="">Selecionar</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label>Quais? </label>
+                    <input type="text" name="quais_medicacao" class="input">
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <div>
+                    <label>Faz uso de alimentação vegetariana?</label>
+                    <div class="custom_select">
+                        <select name="vegetariano">
+
+                            <option value="">Selecionar</option>
+                            <option value="N">Sim</option>
+                            <option value="S">Não</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label>Quais? </label>
+                    <input type="text" name="quais_vegetariano" class="input">
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <div>
+                    <label>Possui plano de saúde?</label>
+                    <div class="custom_select">
+                        <select name="plano_de_saude">
+                            <option value="">Selecionar</option>
+                            <option value="N">Sim</option>
+                            <option value="S">Não</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label>Telefone do convênio</label>
+                    <input type="text" name="telefone_plano" class="input" onkeypress="mask(this, telephone) "
+                        onblur="mask(this, telephone); " name="telefone_plano">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- dados da casa espirita -->
+
+        <div class="steps">
+
+            <h2>
+                <p>DADOS DA INSTITUÍÇÃO ESPIRITA</p>
+            </h2>
+
+            <div class="inputfield">
+                <label>Nome</label>
+                <input type="text" id="instituicao_espirita"  list="sel">
+                <datalist id="sel">
+                  <option value="Instituição Espirita">Instituição Espirita</option>
+                </datalist>
+               <!--  <select name="instituicao_espirita" id="sel">
+                    <option value="234"> Selecione a instituição Espírita</option>
+
+                </select> -->
+            </div>
+            <div class="inputfield">
+                <label>Endereço</label>
+                <input name="endereco_c" id="endereco_espirita" type="TEXT" class="input">
+            </div>
+            <div class="inputfield">
+
+                <label for="bairro_espirita">Bairro</label>
+                <input name="bairro_c" id="bairro_espirita" class="input" min="1922-01-01" max="3022-01-01">
+
+            </div>
+
+            <div class="inputfield">
+                <label>Cidade</label>
+                <input name="cidade_c" id="cidade_espirita" type="text" class="input" required>
+            </div>
+
+            <div class="inputfield">
+                <label>CEP</label>
+                <input name="cep_centro" id="CEP_espirita" type="text" class="input" required>
+            </div>
+
+            <div class="inputfield">
+                <label> Tempo de instituição</label>
+                <input name="tempo_instituicao" type="number" class="input" required>
+            </div>
+        </div>
+
+        <div class="steps">
+
+            <h2>
+                <p>NORMAS DE AÇÃO COMEJACA 2022</p>
+            </h2>
+
+            <div class="termos">
+                <textarea rows="25" disabled>
+
+“Qual é o tipo mais perfeito que Deus ofereceu ao homem para lhe servir de guia e modelo”?
+
+R.: Jesus
+Jesus é para o homem o exemplo da perfeição moral a que pode pretender a humanidade na Terra. Deus nos oferece Jesus como o mais perfeito modelo, e a doutrina que ensinou é a mais pura expressão de sua lei, porque era o próprio Espírito Divino e foi o ser mais puro que apareceu na Terra.  (...) 
+(Livro dos Espíritos, perg. 625)
+
+1. FICHA DE INSCRIÇÃO
+
+1.1 Preencher corretamente e de forma legível todos os campos da ficha de inscrição e devolvê-la no prazo marcado.
+
+2. CONDUTA MORAL
+
+2.1 Manter uma conduta individual que possibilite um clima favorável ao relacionamento equilibrado nas conversações, atividades em grupo e demais atividades coletivas, pois o evento será realizado em um ambiente Espírita.
+2.2 Ser solidário com todos, facilitando a integração do grupo.
+2.3 Evitar a crítica destrutiva.
+2.4 Atender com cordialidade as solicitações que visem ao bom andamento das atividades e ao bem comum.
+2.5 Não fumar.
+
+3. HORÁRIO - DISCIPLINA
+
+3.1 Só é permitida a saída ou a entrada no recinto da COMEJACA com autorização da Coordenação Geral.
+3.2 Com o objetivo de assegurar a qualidade do desenvolvimento dos estudos, não será permitida a entrada após o horário de recepção (08h às 9h). Casos específicos deverão ser comunicados antecipadamente a Coordenação Geral.
+3.3 No caso do participante desejar retirar-se, sem retorno, do encontro, poderá fazê-lo mediante solicitação à Coordenação Geral e, quando menor, com a presença/autorização pessoal do responsável.
+3.4 Usar sempre o crachá.
+3.5 Durante as atividades manter a disciplina, evitando atividades paralelas que levem a separação do grupo ou que prejudiquem a harmonia do evento. Evitar jogos que levem a algum tipo de competição, bem como jogos do tipo: dama, xadrez, cartas, etc... Que fogem a finalidade do evento e o uso de qualquer tipo de aparelho sonoro.
+3.6 Trajes: bermudão, calça comprida e camisa. A escolha das roupas auxiliará um melhor rendimento do trabalho.
+3.7 Não haverá local para banho durante o evento
+3.8 Durante os horários de refeições e higiene, esperar a sua vez.
+3.9 O uso de celulares só será permitido nos horários de intervalo do estudo.
+
+
+4. ASSUNTOS GERAIS
+
+4.1 Colaborar em todas as atividades propostas e as solicitações, tais como: manutenção do ambiente, limpeza em geral e outras tarefas necessárias. Comunicar qualquer anormalidade a um coordenador de equipe.
+4.2 Evitar o desperdício de: água, alimentos, energia elétrica, material de consumo e material didático.
+4.3 Em caso de qualquer dificuldade ou indisposição, dirigir-se a um dos membros das equipes.
+4.4 A distribuição de mensagens, livros, jornais, folhetos, fitas e outros, somente poderão ser feitos pela Coordenação Geral.
+4.5 Os membros de equipes, em função de suas atividades, eventualmente, não estão sujeitos às normas estabelecidas nos itens 3.7 e 3.8.
+4.6 Evitar danos ao patrimônio do local do evento. A organização, manutenção e preservação são de responsabilidade de todos.
+
+4.7 Telefones para contato com a Coordenação Geral
+                  Andreia - 97211-5182
+                  Bruno    -99865-7538
+                  Mary     - 98726-1210  
+                  Rubem - 99742-9214
+                  Vicente - 98874-8038
+            </textarea>
+            </div>
+
+            <div class="terms-checkbox">
+                <input type="checkbox" required id="terms-checkbox" name="terms-checkbox">
+                <label for="terms-checkbox">Li e concordo com as NORMAS DE AÇÂO COMEJACA 2022</label>
+            </div>
+
+
+        </div>
+
+        <div class="inputfield">
+
+            <button type="submit" name="cadastrar" id="save">CONFIRMAR INSCRIÇÃO</button>
+
+        </div>
+    </form>
+</div>
+
+<div class="wave">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            class="shape-fill"></path>
+    </svg>
+</div>
+
+</div>
+
+
+ <script src="../../js/scripts.js"></script>
+</body>
+
+</html>
