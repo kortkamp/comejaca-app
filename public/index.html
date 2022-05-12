@@ -136,7 +136,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
             <div class="inputfield">
                 <label>Tipo de partipação</label>
-                <select name="tipo_participacao">
+                <select name="tipo_participacao" onchange="removerDisabledComissao(this.value)">
                     <option value="">Selecionar</option>
                     <option value="Confraternista">Confraternista</option>
                     <option value="Trabalhador">Trabalhador</option>
@@ -148,7 +148,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
                 <label for="tshitnum">Comissão</label>
 
-                <select name="comissao">
+                <select name="comissao" id="comissao" disabled>
 
                     <option value="">Selecionar</option>
                     <option value="Divulgacao">Divulgação</option>
@@ -164,7 +164,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
                 <label for="tshitnum">Deseja camisa?</label>
 
-                <select name="camisa">
+                <select name="camisa" onchange="removerDisabledCamisa(this.value)">
                     <option value="">
                         Selecionar
                     </option>
@@ -175,7 +175,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
             <div class="inputfield">
                 <label>Tamanho da camisa</label>
-                <select name="tamanho_camisa">
+                <select name="tamanho_camisa" disabled id="camisa">
                     <option value="">Selecionar</option>
                     <option value="PP">PP</option>
                     <option value="P">P</option>
@@ -198,17 +198,17 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 <div>
                     <label>Já participou de outras COMEJACAS?</label>
                     <div class="custom_select">
-                        <select name="comejacas">
+                        <select name="comejacas" onchange="removerDisabledQuantasComejacas(this.value)">
                             <option value="">Selecionar</option>
-                            <option value="N">Sim</option>
-                            <option value="S">Não</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
                         </select>
                     </div>
                 </div>
 
                 <div>
                     <label>Quantas ?</label>
-                    <input type="text" name="quantas" class="input">
+                    <input type="text" name="quantas" disabled id="numeroComejacas" class="input">
 
                 </div>
             </div>
@@ -217,7 +217,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 <div>
                     <label>Possui algum tipo de alergia?</label>
                     <div class="custom_select">
-                        <select name="alergia">
+                        <select name="alergia" onchange="removerDisabledTemAlergia(this.value)">
                             <option value="">Selecionar</option>
                             <option value="S">Sim</option>
                             <option value="N">Não</option>
@@ -227,7 +227,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
 
                 <div>
                     <label>Quais? </label>
-                    <input type="text" name="quais_alergia" class="input">
+                    <input type="text" name="quais_alergia" disabled id="temAlergia" class="input">
                 </div>
             </div>
 
@@ -235,7 +235,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 <div>
                     <label>Possui alguma doença crônica?</label>
                     <div class="custom_select">
-                        <select name="doenca">
+                        <select name="doenca" onchange="removerDisabledTemDoencaCronica(this.value)">
                             <option value="">Selecionar</option>
                             <option value="S">Sim</option>
                             <option value="N">Não</option>
@@ -244,7 +244,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 </div>
                 <div>
                     <label>Quais?</label>
-                    <input type="text" name="quais_doenca" class="input">
+                    <input type="text" name="quais_doenca" id="temDoencaCronica" disabled class="input">
                 </div>
             </div>
 
@@ -252,7 +252,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 <div>
                     <label>Faz uso rotineiro de medicação?</label>
                     <div class="custom_select">
-                        <select name="medicacao">
+                        <select name="medicacao" onchange="removerDisabledFazUsoMedicacao(this.value)">
                             <option>Selecionar</option>
                             <option value="S">Sim</option>
                             <option value="N">Não</option>
@@ -261,7 +261,7 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 </div>
                 <div>
                     <label>Quais? </label>
-                    <input type="text" name="quais_medicacao" class="input">
+                    <input type="text" name="quais_medicacao" id="usaMedicacao" disabled class="input">
                 </div>
             </div>
 
@@ -269,17 +269,16 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 <div>
                     <label>Faz uso de alimentação vegetariana?</label>
                     <div class="custom_select">
-                        <select name="vegetariano">
-
+                        <select name="vegetariano" onchange="removerDisabledFazUsoVegetariano(this.value)">
                             <option>Selecionar</option>
-                            <option value="N">Sim</option>
-                            <option value="S">Não</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
                         </select>
                     </div>
                 </div>
                 <div>
                     <label>Quais? </label>
-                    <input type="text" name="quais_vegetariano" class="input">
+                    <input type="text" name="quais_vegetariano" disabled id="usoVegetariano" class="input">
                 </div>
             </div>
 
@@ -287,17 +286,17 @@ Confraternização das Mocidades Espiritas de Jacarepagua">
                 <div>
                     <label>Possui plano de saúde?</label>
                     <div class="custom_select">
-                        <select name="plano_de_saude">
+                        <select name="plano_de_saude" onchange="removerDisabledTemPlanoSaude(this.value)" >
                             <option>Selecionar</option>
-                            <option value="N">Sim</option>
-                            <option value="S">Não</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
                         </select>
                     </div>
                 </div>
                 <div>
                     <label>Telefone do convênio</label>
                     <input type="text" name="telefone_plano" class="input" onkeypress="mask(this, telephone) "
-                        onblur="mask(this, telephone); " name="telefone_plano">
+                        onblur="mask(this, telephone); " disabled id="temPlanoSaude" name="telefone_plano">
                 </div>
             </div>
 
@@ -432,6 +431,7 @@ Jesus é para o homem o exemplo da perfeição moral a que pode pretender a huma
 </div>
 
 </div>
+<script src="js/inputsCondicionais.js"></script>
 <script src="js/viacep.js"></script>
 <script src="js/service.js"></script>
 <script src="js/centros.js"></script>
