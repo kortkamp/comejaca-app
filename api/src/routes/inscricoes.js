@@ -1,10 +1,11 @@
 const express = require('express');
 const inscricoesRoutes = express.Router();
-
+const app = express()
 const dbo = require('../database/conn');
 
 inscricoesRoutes.route('/api/').get(async (_req, res) => {
     res.status(200).send('Oi Eu sou o goku')
+
 })
 
 inscricoesRoutes.route('/api/inscricoes').get(async (_req, res) => {
@@ -41,7 +42,8 @@ inscricoesRoutes.route('/api/inscricoes').post(async (_req, res) => {
                 estado: _req.body.dados_pessoais.endereco.estado,
                 cidade: _req.body.dados_pessoais.endereco.cidade,
                 bairro: _req.body.dados_pessoais.endereco.bairro,
-                numero: _req.body.dados_pessoais.endereco.numero
+                numero: _req.body.dados_pessoais.endereco.numero,
+                complemento: _req.body.dados_pessoais.endereco.complemento
             }
         },
         questionario: [
