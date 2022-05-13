@@ -144,8 +144,6 @@
                     <option value="">Selecionar</option>
                     <option value="Confraternista">Confraternista</option>
                     <option value="Trabalhador">Trabalhador</option>
-                    <option value="Pais">Pais</option>
-                    <option value="Crianca">Criança</option>
                 </select>
             </div>
             <div class="inputfield">
@@ -159,8 +157,10 @@
                     <option value="Recepcao">Recepção</option>
                     <option value="Servicos Gerais">Serviços Gerais</option>
                     <option value="Alimentacao">Alimentação</option>
-                    <option value="Estudos">Estudos</option>
+                    <option value="Estudos">Estudos Doutrinários</option>
                     <option value="Coordenacao Geral">Coordenação Geral</option>
+                    <option value="Atendimento Fraterno">Atendimento Fraterno</option>
+                    <option value="Multimeios">Multimeios</option>
                 </select>
             </div>
 
@@ -181,7 +181,14 @@
                 <label>Tamanho da camisa</label>
                 <select name="tamanho_camisa" disabled id="camisa">
                     <option value="">Selecionar</option>
-                    <option value="PP">PP</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                    <option value="14">14</option>
                     <option value="P">P</option>
                     <option value="M">M</option>
                     <option value="G">G</option>
@@ -290,7 +297,7 @@
                 <div>
                     <label>Possui plano de saúde?</label>
                     <div class="custom_select">
-                        <select name="plano_de_saude" onchange="removerDisabledTemPlanoSaude(this.value)" >
+                        <select name="plano_de_saude" onchange="removerDisabledTemPlanoSaude(this.value)">
                             <option>Selecionar</option>
                             <option value="S">Sim</option>
                             <option value="N">Não</option>
@@ -348,7 +355,7 @@
 
             <div class="inputfield">
                 <label> Tempo de instituição</label>
-                <input name="tempo_instituicao"  type="number" class="input" min="1" max="100" required>
+                <input name="tempo_instituicao" type="number" class="input" min="1" max="100" required>
             </div>
         </div>
 
