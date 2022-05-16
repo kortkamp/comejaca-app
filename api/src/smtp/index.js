@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 require('dotenv').config();
 
 async function sendConfirmation({ id, nome, email }) {
-console.log(process.env.HOST)  
+    console.log(process.env.HOST)
     const link = 'https://www.comejaca.org.br/' + id
 
     let transporter = nodemailer.createTransport({
@@ -46,11 +46,11 @@ console.log(process.env.HOST)
     Pequeno companheiro: R$ 20,00<br><br><br>
      
     <b>Contatos</b><br>
-    Andreia - (21) 9 7211-5182
-    Bruno   - (21) 9 9865-7538
-    Mary    - (21) 9 8726-1210  
-    Rubem   - (21) 9 9742-9214
-    Vicente - (21) 9 8874-8038
+    Andreia - (21) 9 7211-5182<br>
+    Bruno   - (21) 9 9865-7538<br>
+    Mary    - (21) 9 8726-1210<br>
+    Rubem   - (21) 9 9742-9214<br>
+    Vicente - (21) 9 8874-8038<br><br>
      
     E-mail: coordenacaogeral@comejaca.org.br
     </p>
