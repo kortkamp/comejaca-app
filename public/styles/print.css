@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Nunito&family=Poppins:wght@300;400;600&family=Roboto:wght@100;400;500&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 
@@ -29,7 +28,7 @@ p {
   text-align: center;
 
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 img {
@@ -61,9 +60,7 @@ h2 {
 /* .steps {
   border: 1px solid;
 } */
-.title {
-  background-color: #EBEAEC;
-}
+
 
 .wrapper {
   max-width: 1100px;
@@ -74,6 +71,7 @@ h2 {
   padding: 30px;
   border-radius: 15px;
   z-index: 10;
+  border: 3px solid;
 
 }
 
@@ -88,6 +86,7 @@ h2 {
 input {
   border: none;
   padding: 3px 0 3px 0;
+  background: #fff;
 }
 
 label {
@@ -124,7 +123,8 @@ label {
 p {
   margin-top: 5px;
   margin-bottom: 5px;
-  border: 2px solid;
+  border-top:1px solid;
+  border-bottom:1px solid;
 }
 
 @media print {
