@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="icon" href="https://www.comejaca.org.br/img/jacare.svg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Confraternização das Mocidades Espiritas de Jacarepagua">
+    <meta name="keywords" content="">
+    <link rel="icon" href="https://www.comejaca.org.br/img/jacare.svg">
+    <link rel="stylesheet" href="https://www.comejaca.org.br/styles/print.css">
+    <link rel="stylesheet" href="https://www.comejaca.org.br/styles/mobile.css">
+</head>
+<div class="wrapper">
+    <header>
+
+        <div>
+            <h1>XLIII COMEJACA 2022 </h1>
+            <span>Confraternização das Mocidades Espíritas de Jacarepaguá</span>
+            <span class="tema">#Diversidade</span>
+        </div>
+
+    </header>
+    <div class="informacao">
+        <div>Valor da inscrição</div>
+        <div class="preco-inscricao">
+            Confraternistas e membros da equipe:
+            R$ 35,00<br>
+            Pequeno companheiro: R$ 20,00</div>
+        <div class="camisa-evento">Camisa do evento</div>
+        <div class="camisa-preco">
+            Adultos e Crianças: R$ 20,00<br>
+            (preço não está incluso na inscrição)
+        </div>
+    </div>
+
+    <form class="form" onsubmit="submitForm(event)">
+
+        <!-- dados  pessoais -->
+        <div class="title">
+
+            <p id="signup">DADOS PESSOAIS</p>
+
+        </div>
+
+        <div class="steps">
+
+
+
+            <div class="inputfield">
+                <label for="nome">Nome Completo:
+                </label>
+                <input type="text" disabled name="nomecompleto" value="{{dados_pessoais.nome_completo}}">
+            </div>
+
+
+            <div class="inputfield">
+                <label for="nome_cracha">Nome no cracha:</label>
+                <input type="text" disabled name="nome_cracha" value="{{dados_pessoais.nome_cracha}}">
+            </div>
+
+
+            <div class="inputfield">
+                <label for="email">E-mail:</label>
+                <input type="email" disabled placeholder="" name="email" value="{{dados_pessoais.email}}">
+            </div>
+
+            <div class="inputfield">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input class="input" disabled name="data_nascimento" maxlength="10" value="{{dados_pessoais.data_nascimento}}">
+            </div>
+
+            <div class="inputfield">
+                <label for="idade">Idade (30/07/2022):</label>
+                <input class="input" type="number" name="idade" onload="" disabled value="{{dados_pessoais.idade}}">
+            </div>
+
+            <div class="inputfield">
+                <label>Sexo:</label>
+                <input type="text" class="input" id="nome_cracha" disabled name="sexo" value="{{dados_pessoais.sexo}}">
+            </div>
+
+            <div class="inputfield">
+                <label>Genero:</label>
+                <input type="text" class="input" id="nome_cracha" disabled name="genero" value="{{dados_pessoais.genero}}">
+            </div>
+
+
+            <div class="inputfield" id="tel">
+                <label>Telefone:</label>
+                <input type="tel" class="input" disabled onkeypress="mask(this, telephone) "
+                    onblur="mask(this, telephone); " name="telefone" value="{{dados_pessoais.telefone}}">
+            </div>
+
+        </div>
+
+        <!-- endereco -->
+        <div class="title">
+
+            <p>ENDEREÇO</p>
+
+        </div>
+        <div class="steps">
+
+            <div class="inputfield">
+                <label for="CEP">CEP:</label>
+                <input type="text" disabled id="cep" class="input" name="CEP" value="{{dados_pessoais.endereco.cep}}">
+            </div>
+
+            <div class="inputfield">
+                <label for="endereco">Endereço:</label>
+                <input type="text" disabled id="endereco" name="endereco" class="input" disabled value="{{dados_pessoais.endereco.endereco}}">
+            </div>
+
+            <div class="inputfield">
+                <label for="estado">Estado:</label>
+                <input type="text" disabled id="estado" name="estado" class="input" disabled value="{{dados_pessoais.endereco.cep}}">
+            </div>
+
+            <div class="inputfield">
+                <label for="cidade">Cidade:</label>
+                <input type="text" disabled id="cidade" name="cidade" class="input" disabled value="{{dados_pessoais.endereco.cidade}}">
+            </div>
+
+
+            <div class="inputfield">
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" disabled name="bairro" class="input" disabled value="{{dados_pessoais.endereco.bairro}}">
+            </div>
+
+            <div class="inputfield">
+                <label for="numero">Numero:</label>
+                <input type="text" id="numero" disabled name="numero" class="input" value="{{dados_pessoais.endereco.numero}}">
+            </div>
+
+            <div class="inputfield">
+                <label for="numero">Complemento:</label>
+                <input type="text" id="numero" name="numero" disabled class="input" value="{{dados_pessoais.endereco.complemento}}">
+            </div>
+        </div>
+
+        <!-- dados para o evento -->
+
+        <p>DADOS PARA O EVENTO</p>
+
+
+        <div class="steps">
+
+            <div class="inputfield">
+                <label>Tipo de partipação:</label>
+                <input type="text" class="input" id="nome_cracha" disabled name="comissao" value="{{tipo}}">
+            </div>
+            <div class="inputfield">
+
+                <label for="tshitnum">Comissão:</label>
+
+                <input type="text" class="input" id="nome_cracha" disabled name="comissao" value="{{comissao}}">
+            </div>
+
+            <div class="inputfield">
+
+                <label for="tshitnum">Deseja camisa?</label>
+
+                <input type="text" class="input" disabled id="nome_cracha" name="camisa" value="{{incluir_camisa}}">
+            </div>
+
+            <div class="inputfield">
+                <label>Tamanho da camisa:</label>
+                <input type="text" class="input" id="nome_cracha" disabled name="tamanho_camisa" value="{{tamanho_camisa}}">
+            </div>
+        </div>
+
+        <!-- outras informações -->
+        <div class="title">
+
+            <p>OUTRAS INFORMAÇÕES</p>
+
+        </div>
+        <div class="steps">
+
+            {{#each questionario}}
+                <div class="inputfield">
+                    <label>{{this.nome}}</label>
+                    <input type="text" class="input" id="nome_cracha" disabled name="comejacas" value={{this.resposta}}>
+                </div>
+
+                <div>
+                    {{#if this.quantas}}
+                        <label>Quantas ?</label>
+                
+                        <input type="text" name="quantas" disabled id="numeroComejacas" disabled class="input" value={{this.quantas}}>
+                    {{/if}}
+                    {{#if this.quais}}
+                        <label>Quais ?</label>
+                
+                        <input type="text" name="quais" disabled id="numeroComejacas" disabled class="input" value={{this.quais}}>
+                    {{/if}}
+                    {{#if this.telefone_convenio}}
+                        <label>telefone_convenio ?</label>
+                
+                        <input type="text" name="telefone_convenio" disabled id="numeroComejacas" disabled class="input" value={{this.telefone_convenio}}>
+                    {{/if}}
+                   
+                </div>
+            {{/each}}
+            {{!-- <div class="inputfield">
+                <label>Já participou de outras COMEJACAS?</label>
+                <input type="text" class="input" id="nome_cracha" disabled name="comejacas">
+            </div>
+
+            <div>
+                <label>Quantas ?</label>
+                <input type="text" name="quantas" disabled id="numeroComejacas" disabled class="input">
+            </div>
+
+
+            <div class="inputfield">
+                <label>Possui algum tipo de alergia?</label>
+                <input type="text" class="input" id="nome_cracha" disabled name="alergias">
+            </div>
+
+            <div>
+                <label>Quais? </label>
+                <input type="text" name="quais_alergia" disabled id="temAlergia" disabled class="input">
+            </div>
+
+
+            <div class="inputfield">
+                <label>Possui alguma doença crônica?</label>
+                <input type="text" disabled name="doenca">
+            </div>
+            <div>
+                <label>Quais?</label>
+                <input type="text" name="quais_doenca" disabled disabled>
+            </div>
+
+            <div class="inputfield">
+                <label>Faz uso rotineiro de medicação?</label>
+                <input type="text" disabled name="nome_cracha">
+            </div>
+            <div>
+                <label>Quais? </label>
+                <input type="text" name="quais_medicacao" disabled>
+            </div>
+
+
+            <div class="inputfield">
+                <label>Faz uso de alimentação vegetariana?</label>
+                <input type="text" name="vegetariano">
+            </div>
+            <div>
+                <label>Quais? </label>
+                <input type="text" name="quais_vegetariano" disabled id="usoVegetariano" class="input">
+            </div>
+
+            <div class="inputfield">
+                <label>Possui plano de saúde?</label>
+                <input type="text" name="quais_medicacao" id="usaMedicacao" disabled class="input">
+            </div>
+
+            <div>
+                <label>Telefone do convênio:</label>
+                <input type="text" name="telefone_plano" class="input" onkeypress="mask(this, telephone) "
+                    onblur="mask(this, telephone); " disabled id="temPlanoSaude" name="telefone_plano">
+            </div> --}}
+        </div>
+
+
+        <!-- dados da casa espirita -->
+
+
+        <p>DADOS DA INSTITUÍÇÃO ESPIRITA</p>
+
+
+        <div class="steps">
+
+
+            <div class="inputfield">
+                <label>Nome:</label>
+                <input type="text" id="instituicao_espirita" name="instituicao_espirita" list="datalist" value="{{instituicao.nome}}">
+
+            </div>
+            <div class="inputfield">
+                <label>Endereço:</label>
+                <input name="endereco_c" id="endereco_espirita" type="TEXT" class="input" value="{{instituicao.endereco.endereco}}">
+            </div>
+            <div class="inputfield">
+
+                <label for="bairro_espirita">Bairro:</label>
+                <input name="bairro_c" id="bairro_espirita" class="input" min="1922-01-01" max="3022-01-01" value="{{instituicao.endereco.bairro}}">
+
+            </div>
+
+            <div class="inputfield">
+                <label>Cidade:</label>
+                <input name="cidade_c" id="cidade_espirita" type="text" class="input" value="{{instituicao.endereco.cidade}}">
+            </div>
+
+            <div class="inputfield">
+                <label>CEP:</label>
+                <input name="cep_centro" id="CEP_espirita" type="text" class="input" value="{{instituicao.endereco.cep}}">
+            </div>
+
+            <div class="inputfield">
+                <label> Tempo de instituição:</label>
+                <input name="tempo_instituicao" type="number" class="input" min="1" max="100" value="{{instituicao.tempo_instituicao}}">
+            </div>
+
+
+        </div>
+        <div class="aprovacoes" style="text-align: justify; ">
+            <div class="participante">
+                <p>ASSINATURA DO DO PARTICIPANTE</p>
+                <div>
+                    Eu me comprometo a participar de todas as atividades da COMEJACA e aceito seguir regulamento
+                    conforme
+                    descrito nas normas de ação e no plano geral do evento.<br>
+                    <div class="assinaturas-title">
+                        <div class="assinaturas-participante">
+                            Assinatura do participante__ Data:
+                            __</div>
+                    </div>
+                </div>
+                <p>PARA USO DA DIREÇÃO DO COMEJACA</p>
+                <div class="acordo">Declaro que o participante acima está de acordo com os critérios estabelecidos no
+                    Plano Geral da XL
+                    COMEJACA.<br>
+                    <div class="assinaturas-title">
+                        <div class="assinaturas-title-dirigentedij">
+                            Assinatura Dirigente DIJ Data e tel.__</div>
+                        <div class="assinaturas-title-presidenteIE"> Assinatura Presidente IE Data e
+                            tel.__</div>
+                    </div>
+                </div>
+                <p>ASSINATURA DO RESPONSÁVEL PARA MENORES DE IDADE</p>
+                <div class="responsavel">
+                    Eu__ Pai / Mãe ou responsável, Portador da Id.
+                    n.º __ Autorizo o menor abaixo a participar da
+                    XLIII COMEJACA nos dias 30 e 31/07/2022.
+                    Assinatura do responsável: __
+                </div>
+            </div>
+
+        </div>
+        <input type="button" value="Imprimir" onClick="window.print()" />
+        <script>
+
+        </script>
+
+        </body>
+
+</html>

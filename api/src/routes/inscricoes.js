@@ -1,28 +1,32 @@
 const express = require('express');
 const inscricoesRoutes = express.Router();
 const dbo = require('../database/conn');
-const sendConfirmation = require('../smtp/index')
+const sendConfirmation = require('../smtp/index');
 const mongodb = require('mongodb');
 const app = require('express');
-const uuid = require('uuid')
+const handlebars = require('handlebars');
+const path = require('path');
+const fs = require('fs');
+
+// const uuid = require('uuid')
 
 /* inscricoesRoutes.route('/api/').get(async (_req, res) => {
     res.status(200).send('Oi Eu sou o goku')
 
 }) */
 
-inscricoesRoutes.route('/api/inscricoes/').get(async (_req, res) => {
+inscricoesRoutes.route('/api/inscricoes/:id').get(async (_req, res) => {
 
-    res.sendFile(__dirname + 'cadastro')
-/*     try {
+    // res.sendFile(__dirname + 'cadastro')
+    try {
         const dbConnect = dbo.getDb();
         const id = new mongodb.ObjectId(_req.params.id)
         const user = await dbConnect.collection('inscricoes').findOne({ _id: id })
         if (!user) throw new Error()
-        return res.status(200).json('user')
+        return res.status(200).json(user)
     } catch (error) {
         return res.status(404).send('Usuario nao encontrado')
-    } */
+    } 
 
 })
 
@@ -32,8 +36,30 @@ inscricoesRoutes.route('/api/inscricoes/print/:id').get(async (_req, res) => {
         const id = new mongodb.ObjectId(_req.params.id)
         const user = await dbConnect.collection('inscricoes').findOne({ _id: id })  
         if (!user) throw new Error()
-        return res.status(200).render('cadastro.html')
+
+
+        const templateFile = path.resolve(
+            __dirname,
+            '..',
+            'views',
+            'ficha.hbs',
+        );
+
+        const templateFileContent = await fs.promises.readFile(templateFile, {
+            encoding: 'utf-8',
+        });
+
+        
+    
+        const parseTemplate = handlebars.compile(templateFileContent);
+    
+        const ficha = parseTemplate(user);
+
+        
+
+        return res.status(200).send(ficha)
     } catch (error) {
+        console.log(error)
         return res.status(404).send('Usuario nao encontrado')
     }
 
@@ -153,7 +179,7 @@ inscricoesRoutes.route('/api/inscricoes').post(async (_req, res) => {
 
 inscricoesRoutes.route('/api/inscricoes/test').post(async (_req, res) => {
     console.log(_req.body)
-    res.status(204).send();
+    res.status(204).send("teste");
 });
 
 
