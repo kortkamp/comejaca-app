@@ -20,7 +20,7 @@
     </header>
 
 
-    <form class="form" onsubmit="submitForm(event)">
+    <form class="form" class="was-validated" onsubmit="submitForm(event)">
 
         <!-- dados  pessoais -->
 
@@ -30,10 +30,10 @@
                 <p id="signup">DADOS PESSOAIS</p>
             </h2>
 
-            <div class="inputfield">
+            <div class="inputfield" >
                 <label for="nome">Nome Completo
                 </label>
-                <input type="text" class="input" id="nome" name="nomecompleto" required>
+                <input onkeypress="return lettersOnly(event);" type="text" class="input" id="nome" name="nomecompleto" required>
             </div>
 
 

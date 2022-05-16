@@ -25,6 +25,8 @@ body {
     margin: 0;
 }
 
+
+
 .wrapper {
     max-width: 1100px;
     min-width: 50%;
@@ -64,6 +66,8 @@ span {
     font-size: 1rem;
     font-weight: 400;
 }
+
+
 
 .attention-1 {
     margin-top: 50px;
@@ -120,7 +124,7 @@ form {
     margin-bottom: 1rem;
     display: flex;
     gap: 1rem;
-    
+
 }
 
 
@@ -322,7 +326,7 @@ button:hover {
     grid-template-columns: 1fr 5fr;
     width: 500px;
     align-items: center;
-    
+
 
 }
 
@@ -430,7 +434,7 @@ ul:last-child {
     padding-bottom: 38.5px;
 }
 
-#dados_para_evento  .inputfield .custom_select, #dados_para_evento  .inputfield input {
-  margin-top: 15px;
+#dados_para_evento .inputfield .custom_select,
+#dados_para_evento .inputfield input {
+    margin-top: 15px;
 }
-

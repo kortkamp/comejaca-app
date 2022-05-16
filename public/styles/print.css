@@ -1,20 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Nunito&family=Poppins:wght@300;400;600&family=Roboto:wght@100;400;500&display=swap");
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
-header {
-  border:1px solid;
-  display: flex;
-  justify-content: space-between ;
-}
-header div{
+
+
+
+header div {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
+
+
 }
 
 html {
@@ -26,12 +26,20 @@ html {
 }
 
 p {
-  font-weight: bold;
+  text-align: center;
+
+  font-size: 15px;
+  font-weight: 500;
 }
+
 img {
   width: 50px;
   height: 50px;
   float: left;
+}
+
+.participante {
+  font-weight: bold;
 }
 
 h1,
@@ -46,8 +54,7 @@ span {
 h2 {
   text-align: left;
   padding: 1px 0 1px;
-  border-bottom: 1px solid;
-  border-top: 1px solid;
+
   /*   border: 1px solid; */
 }
 
@@ -75,27 +82,58 @@ h2 {
   grid-template-columns: 1fr 1fr;
   padding-top: 5px;
   padding-bottom: 5px;
+
 }
 
 input {
   border: none;
   padding: 3px 0 3px 0;
 }
+
+label {
+  font-weight: bold;
+}
+
 .aprovacoes {
   padding-top: 15px;
 }
+
 .assinaturas-title {
   font-weight: bold;
   justify-content: space-around;
   flex-direction: row;
-  display:flex;
+  display: flex;
   padding-top: 5px;
   padding-bottom: 5px;
 
 }
 
+.informacao {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 10px 0;
+  border-top: 3px solid;
+  padding: 18px;
+}
+
+
+.tema {
+  font-weight: bold;
+}
+
+p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 2px solid;
+}
+
 @media print {
-  button {
+  button, input {
     display: none;
+  }
+
+  .inputfield {
+    margin: 0;
+    padding: 5;
   }
 }
