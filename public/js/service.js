@@ -90,7 +90,7 @@ function submitForm(event) {
         tamanho_camisa: getValue('tamanho_camisa'),
     }
 
-    fetch('https://comejaca.org.br/api/inscricoes/', {
+    fetch('https://www.comejaca.org.br/api/inscricoes/', {
         headers: {
             "Content-Type": "application/json"
         },
