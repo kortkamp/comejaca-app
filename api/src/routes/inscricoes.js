@@ -3,8 +3,6 @@ const inscricoesRoutes = express.Router();
 const dbo = require('../database/conn');
 const sendConfirmation = require('../smtp/index')
 const mongodb = require('mongodb');
-const app = require('express');
-const uuid = require('uuid')
 
 /* inscricoesRoutes.route('/api/').get(async (_req, res) => {
     res.status(200).send('Oi Eu sou o goku')
