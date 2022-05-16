@@ -1,14 +1,47 @@
 const express = require('express');
 const inscricoesRoutes = express.Router();
-const app = express()
 const dbo = require('../database/conn');
+const sendConfirmation = require('../smtp/index')
+const mongodb = require('mongodb');
+const app = require('express');
+const uuid = require('uuid')
 
-inscricoesRoutes.route('/api/').get(async (_req, res) => {
+/* inscricoesRoutes.route('/api/').get(async (_req, res) => {
     res.status(200).send('Oi Eu sou o goku')
+
+}) */
+
+inscricoesRoutes.route('/api/inscricoes/').get(async (_req, res) => {
+
+    res.sendFile(__dirname + 'cadastro')
+/*     try {
+        const dbConnect = dbo.getDb();
+        const id = new mongodb.ObjectId(_req.params.id)
+        const user = await dbConnect.collection('inscricoes').findOne({ _id: id })
+        if (!user) throw new Error()
+        return res.status(200).json('user')
+    } catch (error) {
+        return res.status(404).send('Usuario nao encontrado')
+    } */
 
 })
 
-inscricoesRoutes.route('/api/inscricoes').get(async (_req, res) => {
+inscricoesRoutes.route('/api/inscricoes/print/:id').get(async (_req, res) => {
+    try {
+        const dbConnect = dbo.getDb();
+        const id = new mongodb.ObjectId(_req.params.id)
+        const user = await dbConnect.collection('inscricoes').findOne({ _id: id })  
+        if (!user) throw new Error()
+        return res.status(200).render('cadastro.html')
+    } catch (error) {
+        return res.status(404).send('Usuario nao encontrado')
+    }
+
+})
+
+
+
+/* inscricoesRoutes.route('/api/inscricoes').get(async (_req, res) => {
     const dbConnect = dbo.getDb();
 
     dbConnect
@@ -22,12 +55,17 @@ inscricoesRoutes.route('/api/inscricoes').get(async (_req, res) => {
                 res.json(result);
             }
         });
-});
+}); */
 
 inscricoesRoutes.route('/api/inscricoes').post(async (_req, res) => {
+
+
     const dbConnect = dbo.getDb();
+
     const inscricao = {
+
         dados_pessoais: {
+
             nome_completo: _req.body.dados_pessoais.nome_completo,
             nome_cracha: _req.body.dados_pessoais.nome_cracha,
             email: _req.body.dados_pessoais.email,
@@ -47,37 +85,37 @@ inscricoesRoutes.route('/api/inscricoes').post(async (_req, res) => {
             }
         },
         questionario: [
-			{
-				nome: _req.body.questionario[0].nome,
-				resposta: _req.body.questionario[0].resposta,
-				quantas: _req.body.questionario[0].quantas,
-			},
-				{
-				nome: _req.body.questionario[1].nome,
-				resposta: _req.body.questionario[1].resposta,
-				quais: _req.body.questionario[1].quais,
-			},
-				{
-				nome: _req.body.questionario[2].nome,
-				resposta: _req.body.questionario[2].resposta,
-				quais: _req.body.questionario[2].quais,
-			},
-				{
-				nome: _req.body.questionario[3].nome,
-				resposta: _req.body.questionario[3].resposta,
-				quais: _req.body.questionario[3].quais,
-			},
-				{
-				nome: _req.body.questionario[4].nome,
-				resposta: _req.body.questionario[4].resposta,
-				quais: _req.body.questionario[4].quais,
-			},
-				{
-				nome: _req.body.questionario[5].nome,
-				resposta: _req.body.questionario[5].resposta,
-				telefone_convenio: _req.body.questionario[5].telefone_convenio,
-			}
-		],
+            {
+                nome: _req.body.questionario[0].nome,
+                resposta: _req.body.questionario[0].resposta,
+                quantas: _req.body.questionario[0].quantas,
+            },
+            {
+                nome: _req.body.questionario[1].nome,
+                resposta: _req.body.questionario[1].resposta,
+                quais: _req.body.questionario[1].quais,
+            },
+            {
+                nome: _req.body.questionario[2].nome,
+                resposta: _req.body.questionario[2].resposta,
+                quais: _req.body.questionario[2].quais,
+            },
+            {
+                nome: _req.body.questionario[3].nome,
+                resposta: _req.body.questionario[3].resposta,
+                quais: _req.body.questionario[3].quais,
+            },
+            {
+                nome: _req.body.questionario[4].nome,
+                resposta: _req.body.questionario[4].resposta,
+                quais: _req.body.questionario[4].quais,
+            },
+            {
+                nome: _req.body.questionario[5].nome,
+                resposta: _req.body.questionario[5].resposta,
+                telefone_convenio: _req.body.questionario[5].telefone_convenio,
+            }
+        ],
         instituicao: {
             tempo_instituicao: _req.body.instituicao.tempo_instituicao,
             nome: _req.body.instituicao.nome,
@@ -94,7 +132,8 @@ inscricoesRoutes.route('/api/inscricoes').post(async (_req, res) => {
         comissao: _req.body.comissao,
         incluir_camisa: _req.body.incluir_camisa,
         tamanho_camisa: _req.body.tamanho_camisa,
-        created_at: new Date()
+        created_at: new Date(),
+
     }
 
     dbConnect
@@ -103,16 +142,18 @@ inscricoesRoutes.route('/api/inscricoes').post(async (_req, res) => {
             if (err) {
                 res.status(400).send('Error inserting matches!');
             } else {
-                console.log(`Added a new match with id ${result.insertedId}`);
+                console.log(`Nova inscricao realizada com ID ${result.insertedId}`);
+                sendConfirmation({ id: result.insertedId, nome: inscricao.dados_pessoais.nome_completo, email: inscricao.dados_pessoais.email })
                 res.status(204).send();
             }
         });
 });
 
 
+
 inscricoesRoutes.route('/api/inscricoes/test').post(async (_req, res) => {
-  console.log(_req.body)
-  res.status(204).send();
+    console.log(_req.body)
+    res.status(204).send();
 });
 
 
