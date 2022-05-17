@@ -3,17 +3,10 @@ const inscricoesRoutes = express.Router();
 const dbo = require('../database/conn');
 const sendConfirmation = require('../smtp/index');
 const mongodb = require('mongodb');
-const app = require('express');
 const handlebars = require('handlebars');
 const path = require('path');
 const fs = require('fs');
 
-// const uuid = require('uuid')
-
-/* inscricoesRoutes.route('/api/').get(async (_req, res) => {
-    res.status(200).send('Oi Eu sou o goku')
-
-}) */
 
 inscricoesRoutes.route('/api/inscricoes/:id').get(async (_req, res) => {
 
@@ -84,83 +77,83 @@ inscricoesRoutes.route('/api/inscricoes/print/:id').get(async (_req, res) => {
 }); */
 
 inscricoesRoutes.route('/api/inscricoes').post(async (_req, res) => {
-
-
     const dbConnect = dbo.getDb();
 
-    const inscricao = {
+    // const inscricao = {
 
-        dados_pessoais: {
+    //     dados_pessoais: {
 
-            nome_completo: _req.body.dados_pessoais.nome_completo,
-            nome_cracha: _req.body.dados_pessoais.nome_cracha,
-            email: _req.body.dados_pessoais.email,
-            data_nascimento: _req.body.dados_pessoais.data_nascimento,
-            idade: _req.body.dados_pessoais.idade,
-            sexo: _req.body.dados_pessoais.sexo,
-            genero: _req.body.dados_pessoais.genero,
-            telefone: _req.body.dados_pessoais.telefone,
-            endereco: {
-                cep: _req.body.dados_pessoais.endereco.cep,
-                endereco: _req.body.dados_pessoais.endereco.endereco,
-                estado: _req.body.dados_pessoais.endereco.estado,
-                cidade: _req.body.dados_pessoais.endereco.cidade,
-                bairro: _req.body.dados_pessoais.endereco.bairro,
-                numero: _req.body.dados_pessoais.endereco.numero,
-                complemento: _req.body.dados_pessoais.endereco.complemento
-            }
-        },
-        questionario: [
-            {
-                nome: _req.body.questionario[0].nome,
-                resposta: _req.body.questionario[0].resposta,
-                quantas: _req.body.questionario[0].quantas,
-            },
-            {
-                nome: _req.body.questionario[1].nome,
-                resposta: _req.body.questionario[1].resposta,
-                quais: _req.body.questionario[1].quais,
-            },
-            {
-                nome: _req.body.questionario[2].nome,
-                resposta: _req.body.questionario[2].resposta,
-                quais: _req.body.questionario[2].quais,
-            },
-            {
-                nome: _req.body.questionario[3].nome,
-                resposta: _req.body.questionario[3].resposta,
-                quais: _req.body.questionario[3].quais,
-            },
-            {
-                nome: _req.body.questionario[4].nome,
-                resposta: _req.body.questionario[4].resposta,
-                quais: _req.body.questionario[4].quais,
-            },
-            {
-                nome: _req.body.questionario[5].nome,
-                resposta: _req.body.questionario[5].resposta,
-                telefone_convenio: _req.body.questionario[5].telefone_convenio,
-            }
-        ],
-        instituicao: {
-            tempo_instituicao: _req.body.instituicao.tempo_instituicao,
-            nome: _req.body.instituicao.nome,
-            endereco: {
-                cep: _req.body.instituicao.endereco.cep,
-                endereco: _req.body.instituicao.endereco.endereco,
-                estado: _req.body.instituicao.endereco.estado,
-                cidade: _req.body.instituicao.endereco.cidade,
-                bairro: _req.body.instituicao.endereco.bairro,
-                numero: _req.body.instituicao.endereco.numero
-            }
-        },
-        tipo: _req.body.tipo,
-        comissao: _req.body.comissao,
-        incluir_camisa: _req.body.incluir_camisa,
-        tamanho_camisa: _req.body.tamanho_camisa,
-        created_at: new Date(),
+    //         nome_completo: _req.body.dados_pessoais.nome_completo,
+    //         nome_cracha: _req.body.dados_pessoais.nome_cracha,
+    //         email: _req.body.dados_pessoais.email,
+    //         data_nascimento: _req.body.dados_pessoais.data_nascimento,
+    //         idade: _req.body.dados_pessoais.idade,
+    //         sexo: _req.body.dados_pessoais.sexo,
+    //         genero: _req.body.dados_pessoais.genero,
+    //         telefone: _req.body.dados_pessoais.telefone,
+    //         endereco: {
+    //             cep: _req.body.dados_pessoais.endereco.cep,
+    //             endereco: _req.body.dados_pessoais.endereco.endereco,
+    //             estado: _req.body.dados_pessoais.endereco.estado,
+    //             cidade: _req.body.dados_pessoais.endereco.cidade,
+    //             bairro: _req.body.dados_pessoais.endereco.bairro,
+    //             numero: _req.body.dados_pessoais.endereco.numero,
+    //             complemento: _req.body.dados_pessoais.endereco.complemento
+    //         }
+    //     },
+    //     questionario: [
+    //         {
+    //             nome: _req.body.questionario[0].nome,
+    //             resposta: _req.body.questionario[0].resposta,
+    //             quantas: _req.body.questionario[0].quantas,
+    //         },
+    //         {
+    //             nome: _req.body.questionario[1].nome,
+    //             resposta: _req.body.questionario[1].resposta,
+    //             quais: _req.body.questionario[1].quais,
+    //         },
+    //         {
+    //             nome: _req.body.questionario[2].nome,
+    //             resposta: _req.body.questionario[2].resposta,
+    //             quais: _req.body.questionario[2].quais,
+    //         },
+    //         {
+    //             nome: _req.body.questionario[3].nome,
+    //             resposta: _req.body.questionario[3].resposta,
+    //             quais: _req.body.questionario[3].quais,
+    //         },
+    //         {
+    //             nome: _req.body.questionario[4].nome,
+    //             resposta: _req.body.questionario[4].resposta,
+    //             quais: _req.body.questionario[4].quais,
+    //         },
+    //         {
+    //             nome: _req.body.questionario[5].nome,
+    //             resposta: _req.body.questionario[5].resposta,
+    //             telefone_convenio: _req.body.questionario[5].telefone_convenio,
+    //         }
+    //     ],
+    //     instituicao: {
+    //         tempo_instituicao: _req.body.instituicao.tempo_instituicao,
+    //         nome: _req.body.instituicao.nome,
+    //         endereco: {
+    //             cep: _req.body.instituicao.endereco.cep,
+    //             endereco: _req.body.instituicao.endereco.endereco,
+    //             estado: _req.body.instituicao.endereco.estado,
+    //             cidade: _req.body.instituicao.endereco.cidade,
+    //             bairro: _req.body.instituicao.endereco.bairro,
+    //             numero: _req.body.instituicao.endereco.numero
+    //         }
+    //     },
+    //     tipo: _req.body.tipo,
+    //     comissao: _req.body.comissao,
+    //     incluir_camisa: _req.body.incluir_camisa,
+    //     tamanho_camisa: _req.body.tamanho_camisa,
+    //     created_at: new Date(),
 
-    }
+    // }
+
+    const inscricao = _req.body;
 
     dbConnect
         .collection('inscricoes')
@@ -171,6 +164,25 @@ inscricoesRoutes.route('/api/inscricoes').post(async (_req, res) => {
                 console.log(`Nova inscricao realizada com ID ${result.insertedId}`);
                 sendConfirmation({ id: result.insertedId, nome: inscricao.dados_pessoais.nome_completo, email: inscricao.dados_pessoais.email })
                 res.status(204).send();
+            }
+        });
+});
+
+inscricoesRoutes.route('/api/inscricoes/:id').put(async (_req, res) => {
+    const dbConnect = dbo.getDb();
+
+    const inscricao_id = _req.params.id
+    const data = _req.body;
+
+    dbConnect
+        .collection('inscricoes')
+        .updateOne({_id:mongodb.ObjectId(inscricao_id)}, { $set: data } , function (err, result) {
+            console.log(result)
+            if (err) {
+                res.status(400).send('Error inserting matches!');
+            } else {
+                console.log(`Atualização de inscricao realizada para o ID ${inscricao_id}`);
+                res.status(200).send();
             }
         });
 });

@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="icon" href="img/jacare.svg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Confraternização das Mocidades Espiritas de Jacarepagua">
+    <meta name="keywords" content="">
+    <link rel="icon" href="img/jacare.svg">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/mobile.css">
+    . <link rel=="stylesheet" type=="text/css" href=="/print.css" media=="print">
+</head>
+<body onload="fillForm()">
+<div class="wrapper">
+    <header class="title">
+        <img src="img/jacare.svg" alt="Oi! eu sou o Jacaré">
+        <h1>XLIII COMEJACA 2022 </h1>
+        <span>Confraternização das Mocidades Espíritas de Jacarepaguá</span>
+    </header>
+
+
+    <form class="form" onsubmit="updateForm(event)" >
+
+        <!-- dados  pessoais -->
+
+        <div class="steps">
+
+            <h2>
+                <p id="signup">ATUALIZAÇÃO DE DADOS PESSOAIS</p>
+            </h2>
+
+            <div class="inputfield" >
+                <label for="nome">Nome Completo
+                </label>
+                <input onkeypress="return lettersOnly(event);" type="text" class="input" id="nome" name="nomecompleto" >
+            </div>
+
+
+            <div class="inputfield">
+                <label for="nome_cracha">Nome no cracha</label>
+                <input type="text" class="input" id="nome_cracha" name="nome_cracha" >
+            </div>
+
+
+            <div class="inputfield">
+                <label for="email">E-mail</label>
+                <input type="email" class="input" placeholder="" name="email" >
+            </div>
+
+            <div class="inputfield">
+                <label for="data_nascimento">Data de Nascimento</label>
+                <input class="input" type="date" name="data_nascimento" maxlength="10" >
+            </div>
+
+            <div class="inputfield">
+                <label for="idade">Idade (30/07/2022)</label>
+                <input class="input" type="number" name="idade" onload="" disabled>
+            </div>
+
+            <div class="inputfield">
+                <label>Sexo</label>
+                <select name="sexo">
+                    <option value="">Selecionar</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+
+                </select>
+            </div>
+
+            <div class="inputfield">
+                <label>Genero</label>
+                <select name="genero">
+                    <option value="">Selecionar</option>
+                    <option value="Cisgenero">Cisgênero</option>
+                    <option value="Transgenero">Transgênero</option>
+                    <option value="Nao-binario">Não-binário</option>
+                    <option value="Prefiro não informar">Prefiro não informar</option>
+                </select>
+            </div>
+
+
+            <div class="inputfield" id="tel">
+                <label>Telefone</label>
+                <input type="tel" class="input" onkeypress="mask(this, telephone) " onblur="mask(this, telephone); "
+                    name="telefone">
+            </div>
+
+        </div>
+
+        <!-- endereco -->
+
+        <div class="steps">
+            <h2>
+                <p>ENDEREÇO</p>
+            </h2>
+
+
+            <div class="inputfield">
+                <label for="CEP">CEP</label>
+                <input type="text" id="cep" class="input" name="CEP" >
+            </div>
+
+            <div class="inputfield">
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" name="endereco" class="input" disabled >
+            </div>
+
+            <div class="inputfield">
+                <label for="estado">Estado</label>
+                <input type="text" id="estado" name="estado" class="input" disabled >
+            </div>
+
+            <div class="inputfield">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" class="input" disabled >
+            </div>
+
+
+            <div class="inputfield">
+                <label for="bairro">Bairro</label>
+                <input type="text" id="bairro" name="bairro" class="input" disabled >
+            </div>
+
+            <div class="inputfield">
+                <label for="numero">Numero</label>
+                <input type="text" id="numero" name="numero" class="input" >
+            </div>
+
+            <div class="inputfield">
+                <label for="numero">Complemento</label>
+                <input type="text" id="numero" name="numero" class="input">
+            </div>
+        </div>
+
+        <!-- dados para o evento -->
+
+        <div class="steps">
+            <h2>
+                <p>DADOS PARA O EVENTO</p>
+            </h2>
+
+            <div class="inputfield">
+                <label>Tipo de partipação</label>
+                <select name="tipo_participacao" onchange="removerDisabledComissao(this.value)">
+                    <option value="">Selecionar</option>
+                    <option value="Confraternista">Confraternista</option>
+                    <option value="Trabalhador">Trabalhador</option>
+                </select>
+            </div>
+            <div class="inputfield">
+
+                <label for="tshitnum">Comissão</label>
+
+                <select name="comissao" id="comissao" disabled>
+
+                    <option value="">Selecionar</option>
+                    <option value="Divulgacao">Divulgação</option>
+                    <option value="Recepcao">Recepção</option>
+                    <option value="Servicos Gerais">Serviços Gerais</option>
+                    <option value="Alimentacao">Alimentação</option>
+                    <option value="Estudos">Estudos Doutrinários</option>
+                    <option value="Coordenacao Geral">Coordenação Geral</option>
+                    <option value="Atendimento Fraterno">Atendimento Fraterno</option>
+                    <option value="Multimeios">Multimeios</option>
+                    <option value="SACE">SACE</option>
+                </select>
+            </div>
+
+            <div class="inputfield">
+
+                <label for="tshitnum">Deseja camisa?</label>
+
+                <select name="camisa" onchange="removerDisabledCamisa(this.value)">
+                    <option value="">
+                        Selecionar
+                    </option>
+                    <option value="S">Sim</option>
+                    <option value="N">Não</option>
+                </select>
+            </div>
+
+            <div class="inputfield">
+                <label>Tamanho da camisa</label>
+                <select name="tamanho_camisa" id="camisa">
+                    <option value="">Selecionar</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                    <option value="14">14</option>
+                    <option value="P">P</option>
+                    <option value="M">M</option>
+                    <option value="G">G</option>
+                    <option value="GG">GG</option>
+                    <option value="XG">XG</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- outras informações -->
+
+        <div class="steps" id="dados_para_evento">
+            <h2>
+                <p>OUTRAS INFORMAÇÕES</p>
+            </h2>
+
+            <div class="inputfield" id="test">
+                <div>
+                    <label>Já participou de outras COMEJACAS?</label>
+                    <div class="custom_select">
+                        <select name="comejacas" onchange="removerDisabledQuantasComejacas(this.value)">
+                            <option value="">Selecionar</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Quantas ?</label>
+                    <input type="text" name="quantas" disabled id="numeroComejacas" class="input">
+
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <div>
+                    <label>Possui algum tipo de alergia?</label>
+                    <div class="custom_select">
+                        <select name="alergia" onchange="removerDisabledTemAlergia(this.value)">
+                            <option value="">Selecionar</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Quais? </label>
+                    <input type="text" name="quais_alergia" disabled id="temAlergia" class="input">
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <div>
+                    <label>Possui alguma doença crônica?</label>
+                    <div class="custom_select">
+                        <select name="doenca" onchange="removerDisabledTemDoencaCronica(this.value)">
+                            <option value="">Selecionar</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label>Quais?</label>
+                    <input type="text" name="quais_doenca" id="temDoencaCronica" disabled class="input">
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <div>
+                    <label>Faz uso rotineiro de medicação?</label>
+                    <div class="custom_select">
+                        <select name="medicacao" onchange="removerDisabledFazUsoMedicacao(this.value)">
+                            <option>Selecionar</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label>Quais? </label>
+                    <input type="text" name="quais_medicacao" id="usaMedicacao" disabled class="input">
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <div>
+                    <label>Faz uso de alimentação vegetariana?</label>
+                    <div class="custom_select">
+                        <select name="vegetariano" onchange="removerDisabledFazUsoVegetariano(this.value)">
+                            <option>Selecionar</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label>Quais? </label>
+                    <input type="text" name="quais_vegetariano" disabled id="usoVegetariano" class="input">
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <div>
+                    <label>Possui plano de saúde?</label>
+                    <div class="custom_select">
+                        <select name="plano_de_saude" onchange="removerDisabledTemPlanoSaude(this.value)">
+                            <option>Selecionar</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label>Telefone do convênio</label>
+                    <input type="text" name="telefone_plano" class="input" onkeypress="mask(this, telephone) "
+                        onblur="mask(this, telephone); " disabled id="temPlanoSaude" name="telefone_plano">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- dados da casa espirita -->
+
+        <div class="steps">
+
+            <h2>
+                <p>DADOS DA INSTITUÍÇÃO ESPIRITA</p>
+            </h2>
+
+            <div class="inputfield">
+                <label>Nome</label>
+                <input type="text" id="instituicao_espirita" name="instituicao_espirita" list="datalist">
+                <datalist id="datalist">
+                    <option value="Instituição Espirita">Instituição Espirita</option>
+                </datalist>
+                <!--  <select name="instituicao_espirita" id="sel">
+                    <option value="234"> Selecione a instituição Espírita</option>
+
+                </select> -->
+            </div>
+            <div class="inputfield">
+                <label>Endereço</label>
+                <input name="endereco_c" id="endereco_espirita" type="TEXT" class="input">
+            </div>
+            <div class="inputfield">
+
+                <label for="bairro_espirita">Bairro</label>
+                <input name="bairro_c" id="bairro_espirita" class="input" min="1922-01-01" max="3022-01-01">
+
+            </div>
+
+            <div class="inputfield">
+                <label>Cidade</label>
+                <input name="cidade_c" id="cidade_espirita" type="text" class="input" >
+            </div>
+
+            <div class="inputfield">
+                <label>CEP</label>
+                <input name="cep_centro" id="CEP_espirita" type="text" class="input" >
+            </div>
+
+            <div class="inputfield">
+                <label> Tempo de instituição</label>
+                <input name="tempo_instituicao" type="number" class="input" min="1" max="100" >
+            </div>
+        </div>
+
+        
+
+        <div class="inputfield">
+
+            <button type="submit" name="cadastrar" id="save">ATUALIZAR DADOS</button>
+
+        </div>
+    </form>
+</div>
+
+<div class="wave">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            class="shape-fill"></path>
+    </svg>
+</div>
+
+</div>
+<script src="js/inputsCondicionais.js"></script>
+<script src="js/viacep.js"></script>
+<script src="js/service.js"></script>
+<script src="js/centros.js"></script>
+<script src="js/scripts.js"></script>
+
+
+</body>
+
+</html>
